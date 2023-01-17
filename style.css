@@ -1,65 +1,96 @@
 :root {
-  --dark: rgb(20, 20, 20);
-  --yellow: rgb(253, 216, 53);
-  --blue: rgb(98, 0, 234);
-  
-  --c1: rgb(38, 70, 83);
-  --c2: rgb(42, 157, 143);
-  
-  --left-color: var(--c1);
-  --right-color: var(--c2);
+  --purple: rgb(123,31,162);
+  --violet: rgb(103,58,183);
+  --pink: rgb(244,143,177);
+}
+
+@keyframes background-pan{
+  from{
+    background-position: 0% center;
+  }
+
+  to{
+    background-position: -200% center;
+  }
+}
+
+@keyframes scale{
+  from, to{
+    transform: scale(0);
+  }
+
+  50%{
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate{
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(180deg);
+  }
 }
 
 body{
-  background-color: var(--dark);
-  margin: 0px;
-}
-
-.side{
-  height: 100vh;
-  width: 100%;
-
+  background-color: rgb(10, 10, 10);
   display: grid;
-  place-items: center;
-
+  height: 100vh;
+  margin: 0px;
   overflow: hidden;
-  position: absolute;
+  place-items: center;
 }
 
-.side .title {
+h1{
+  color: white;
   font-family: "Rubik", sans-serif;
-  font-size: 8vw;
-  margin: 0px 15vw;
-  width: 70vw;
+  font-size: clamp(2em, 2vw, 4em);
+  font-weight: 400;
+  margin: 0px;
+  padding: 20px;
+  text-align: center;
 }
 
-.side .fancy{
-  font-family: "Lobster", cursive;
-  font-size: 1.3em;
-  line-height: 0.8em;
+h1 > .magic{
+  display: inline-block;
+  position: relative;
 }
 
-#left-side{
-  background-color: var(--left-color);
-  z-index: 2;
+h1 > .magic > .magic-star{
+  --size: clamp(20px, 1.5vw, 30px)
+  
+  animation: scale 700ms ease forwards;
+  display: block;
+  height: var(--size);
+  left: var(--star-left);
+  position: absolute;
+  top: var(--star-top);
+  width: var(--size);
 }
 
-#left-side .title {
-  color: white;
+h1 > .magic > .magic-star > svg{
+  animation: rotate 1000ms linear infinite;
+  display: block;
+  opacity: 0.7;
 }
 
-#left-side .fancy{
-  color: var(--right-color);
+h1 > .magic > .magic-star > svg > path{
+  fill: var(--violet);
 }
 
-#right-side{
-  background-color: var(--right-color);
-}
-
-#right-side .title{
-  color: var(--dark);
-}
-
-#right-side .fancy{
-  color: white;
+h1 > .magic > .magic-text{
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var(--violet),
+    var(--pink),
+    var(--purple)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }

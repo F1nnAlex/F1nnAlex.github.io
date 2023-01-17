@@ -1,11 +1,9 @@
-const left = document.getElementById("left-side");
+let index = 0, interval = 1000;
 
-const handleOnMove = e => {
-    const p = e.clientX / window.innerWidth * 100;
+const rand = (min, max) => Math.floor(math.random() * (max-min+1)) + min;
 
-    left.style.width = `${p}%`;
+for(const star of document.getElementsByClassName("magic-star")){
+    setInterval(() =>{
+        star.getElementsByClassName.setProperty()
+    })
 }
-
-document.onmousemove = e => handleOnMove(e);
-
-document.ontouchmove = e => handleOnMove(e.touches[0]);
