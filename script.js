@@ -1,9 +1,8 @@
-let index = 0, interval = 1000;
+const menu = document.getElementById("menu");
 
-const rand = (min, max) => Math.floor(math.random() * (max-min+1)) + min;
-
-for(const star of document.getElementsByClassName("magic-star")){
-    setInterval(() =>{
-        star.getElementsByClassName.setProperty()
-    })
-}
+Array.from(document.getElementsByClassName("menu-item"))
+  .forEach((item, index) => {
+    item.onmouseover = () => {
+      menu.dataset.activeIndex = index;
+    }
+  });
